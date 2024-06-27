@@ -28,22 +28,25 @@ const LoginPage = () => {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify({ email, password }),
-		//   credentials:'include'
         });
 
         const data = await res.json();
-		console.log("___ ",data);
+        console.log("___ ", data);
+
         if (!res.ok) {
           throw new Error(data.error || "Something went wrong");
         }
+
+        return data; // Return the data from the successful response
       } catch (error) {
         throw new Error(error);
       }
     },
-    onSuccess: () => {
-		toast.success("Login successfully");      // refetch the authUser
-      queryClient.invalidateQueries({ queryKey: ["authUser"] });
+    onSuccess: (data) => {
+      toast.success("Login successful");
+      queryClient.invalidateQueries({queryKey:["authUser"]})
     },
   });
 
