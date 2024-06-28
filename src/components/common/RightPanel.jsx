@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom";
-import RightPanelSkeleton from "../skeletons/RightPanelSkeleton";
 import { useQuery } from "@tanstack/react-query";
-import useFollow from "../../hooks/useFollow";
-import LoadingSpinner from "./LoadingSpinner";
 
+import useFollow from "../../hooks/useFollow";
+
+import RightPanelSkeleton from "../skeletons/RightPanelSkeleton";
+import LoadingSpinner from "./LoadingSpinner";
 
 const RightPanel = () => {
 	const { data: suggestedUsers, isLoading } = useQuery({
 		queryKey: ["suggestedUsers"],
 		queryFn: async () => {
 			try {
-				const res = await fetch("http://localhost:10000/api/user/sugessted",{
+				const res = await fetch("/api/users/suggested",{
 					method: "GET",
 					headers: {
-					  "Content-Type": "application/json",
+						"Content-Type": "application/json",
 					},
-					credentials: "include",
+          			credentials:"include",
 				});
 				const data = await res.json();
 				if (!res.ok) {
@@ -28,8 +29,7 @@ const RightPanel = () => {
 		},
 	});
 
-	const {follow, isPending}=useFollow();
-	console.log("suggested user ",suggestedUsers);
+	const { follow, isPending } = useFollow();
 
 	if (suggestedUsers?.length === 0) return <div className='md:w-64 w-0'></div>;
 
