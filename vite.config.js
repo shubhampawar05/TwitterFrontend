@@ -8,7 +8,7 @@ export default defineConfig({
 		port: 3000,
 		proxy: {
 			"/api": {
-				target: "http://localhost:10000",
+				target: "https://twitterbackend-9v44.onrender.com",
 				changeOrigin: true,
 			},
 		},
