@@ -23,7 +23,7 @@ const LoginPage = () => {
 	} = useMutation({
 		mutationFn: async ({ email, password }) => {
 			try {
-				const res = await fetch("https://twitterbackend-9v44.onrender.com/api/auth/login", {
+				const res = await fetch("/api/auth/login", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -63,7 +63,7 @@ const LoginPage = () => {
 			</div>
 			<div className='flex-1 flex flex-col justify-center items-center'>
 				<form className='flex gap-4 flex-col' onSubmit={handleSubmit}>
-					<XSvg className='w-24 lg:hidden fill-white' />
+					<XSvg className='w-28 lg:hidden fill-white' />
 					<h1 className='text-4xl font-extrabold text-white'>{"Let's"} go.</h1>
 					<label className='input input-bordered rounded flex items-center gap-2'>
 						<MdOutlineMail />
