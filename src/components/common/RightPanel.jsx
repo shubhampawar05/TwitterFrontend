@@ -5,13 +5,14 @@ import useFollow from "../../hooks/useFollow";
 
 import RightPanelSkeleton from "../skeletons/RightPanelSkeleton";
 import LoadingSpinner from "./LoadingSpinner";
+import { BACKEND_END_POINT } from "../../utils/date";
 
 const RightPanel = () => {
 	const { data: suggestedUsers, isLoading } = useQuery({
 		queryKey: ["suggestedUsers"],
 		queryFn: async () => {
 			try {
-				const res = await fetch("/api/users/suggested",{
+				const res = await fetch(`${BACKEND_END_POINT}/api/users/suggested`,{
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",

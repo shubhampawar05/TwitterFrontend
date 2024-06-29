@@ -7,6 +7,7 @@ import LoadingSpinner from "../../components/common/LoadingSpinner";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
+import { BACKEND_END_POINT } from "../../utils/date";
 
 const NotificationPage = () => {
 	const queryClient = useQueryClient();
@@ -14,7 +15,7 @@ const NotificationPage = () => {
 		queryKey: ["notifications"],
 		queryFn: async () => {
 			try {
-				const res = await fetch("/api/notifications", {
+				const res = await fetch(`${BACKEND_END_POINT}/api/notifications`, {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
@@ -33,7 +34,7 @@ const NotificationPage = () => {
 	const { mutate: deleteNotifications } = useMutation({
 		mutationFn: async () => {
 			try {
-				const res = await fetch("/api/notifications", {
+				const res = await fetch(`${BACKEND_END_POINT}/api/notifications`, {
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json",

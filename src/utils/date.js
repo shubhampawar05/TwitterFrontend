@@ -40,3 +40,5 @@ export const formatMemberSinceDate = (createdAt) => {
 	const year = date.getFullYear();
 	return `Joined ${month} ${year}`;
 };
+
+export const BACKEND_END_POINT = "https://twitterbackend-9v44.onrender.com" 
