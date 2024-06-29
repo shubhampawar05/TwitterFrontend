@@ -10,13 +10,14 @@ import ProfilePage from "./page/profile/ProfilePage";
 import { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "./components/common/LoadingSpinner";
+import { BACKEND_END_POINT } from "./utils/date";
 
 function App() {
   const { data: authUser, isLoading } = useQuery({
     queryKey: ["authUser"],
     queryFn: async () => {
       try {
-        const res = await fetch("/api/auth/me",{
+        const res = await fetch(`${BACKEND_END_POINT}/api/auth/me`,{
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
