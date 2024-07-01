@@ -10,6 +10,9 @@ const EditProfileModal = ({ authUser }) => {
 		link: "",
 		newPassword: "",
 		currentPassword: "",
+		profileImg:"",
+		coverImg:""
+
 	});
 
 	const { updateProfile, isUpdatingProfile } = useUpdateUserProfile();

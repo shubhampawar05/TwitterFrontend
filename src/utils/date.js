@@ -42,3 +42,4 @@ export const formatMemberSinceDate = (createdAt) => {
 };
 
 export const BACKEND_END_POINT = "https://twitterbackend-9v44.onrender.com" 
+// export const BACKEND_END_POINT = "http://localhost:10000"

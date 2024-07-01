@@ -43,7 +43,7 @@ const ProfilePage = () => {
 						"Content-Type": "application/json",
 					},
           			credentials:"include",
-				});
+				}); 
 				const data = await res.json();
 				if (!res.ok) {
 					throw new Error(data.error || "Something went wrong");
