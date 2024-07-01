@@ -143,7 +143,7 @@ const ProfilePage = () => {
 								</div>
 							</div>
 							<div className='flex justify-end px-4 mt-5'>
-								{isMyProfile && <EditProfileModal authUser={authUser} />}
+								{isMyProfile && <EditProfileModal authUser={authUser}  />}
 								{!isMyProfile && (
 									<button
 										className='btn btn-outline rounded-full btn-sm'

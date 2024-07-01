@@ -38,6 +38,7 @@ function App() {
     },
     retry: false,
   });
+  console.log("data form App.js",authUser);
 
   if (isLoading) {
     return (

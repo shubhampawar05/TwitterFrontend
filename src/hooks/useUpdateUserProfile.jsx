@@ -17,6 +17,7 @@ const useUpdateUserProfile = () => {
 					body: JSON.stringify(formData),
 				});
 				const data = await res.json();
+				console.log("data form update profile page",data);
 				if (!res.ok) {
 					throw new Error(data.error || "Something went wrong");
 				}
